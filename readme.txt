@@ -1,4 +1,5 @@
-=== Plugin Name ===
+=== Action block ===
+Contributors: Klarity team
 Tags: action, block, gutenberg
 Requires at least: 5.0.0
 Tested up to: 5.0.3
