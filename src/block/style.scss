@@ -1,0 +1,108 @@
+.entry-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-block-klarity-action-list-block {
+  margin-top: 20px;
+}
+
+.wp-block-klarity-action-block {
+  margin-bottom: 24px;
+
+  @media only screen and (max-width : 960px) {
+    margin-bottom: 12px;
+  }
+
+  .content {
+    display: flex;
+    background: white;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    height: 190px;
+    box-shadow: 0 11px 20px rgba(0, 0, 0, 0.15);
+
+    @media only screen and (max-width : 960px) {
+      height: 150px;
+    }
+
+    .thumbnail, .text {
+      padding: 12px;
+      height: 100%;
+    }
+
+    .thumbnail {
+      display: flex;
+      justify-content: center;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 70px;
+      width: 40%;
+
+      @media only screen and (max-width : 960px) {
+        background-size: 60px;
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 60%;
+
+      h2, .h2,
+      p, .p {
+        margin: 0;
+        text-align: left;
+      }
+
+      h2, .h2 {
+        &:before {
+          content: none;
+        }
+
+        font-family: Unna, sans-serif;
+        font-weight: bold;
+        line-height: 39px;
+        font-size: 24px;
+        color: black;
+      }
+
+      p, .p {
+        font-family: Lato, sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #0F0F0F;
+
+        @media only screen and (max-width : 960px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+
+  &.completed {
+    &, a {
+      cursor: default;
+    }
+
+    .content {
+      background: $background-completed;
+
+      .thumbnail {
+        display: none;
+      }
+      .text {
+        width: 100%;
+
+        * {
+          background: transparent;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
