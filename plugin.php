@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Action block
+ * Plugin Name: Klarity action block
  * Plugin URI: https://klarity.org/
- * Description: Action block
+ * Description: Klarity action block
  * Author: Klarity
  * Author URI: https://klarity.org/
  * Version: 1.0.0
