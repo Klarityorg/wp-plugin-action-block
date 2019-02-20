@@ -5,14 +5,14 @@ const {__} = wp.i18n;
 const {registerBlockType} = wp.blocks;
 const { InnerBlocks } = wp.editor;
 
-registerBlockType('klarity/action-list-block', {
-	title: __('Action Network action list'),
+registerBlockType('klarity/klarity-action-list-block', {
+	title: __('Action list'),
 	icon: 'admin-site',
 	category: 'layout',
 	edit: props => {
 		return <span>
 			{<div>You can add one or multiple Action Network blocks hereunder.</div>}
-			<InnerBlocks allowedBlocks={'klarity/action-block'} />
+			<InnerBlocks allowedBlocks={'klarity/klarity-action-block'} />
 		</span>;
 	},
 

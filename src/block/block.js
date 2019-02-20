@@ -31,10 +31,10 @@ const actionTypes = {
 	}
 };
 
-registerBlockType('klarity/action-block', {
+registerBlockType('klarity/klarity-action-block', {
 	title: __('Action block'),
 	// Only allow in a registered parent-block
-	parent: [ 'klarity/action-list-block' ],
+	parent: [ 'klarity/klarity-action-list-block' ],
 	category: 'layout',
 	icon: iconEl,
 
