@@ -12,19 +12,19 @@ const iconEl = el('svg', { width: 128, height: 128, viewBox: "0 0 128 128" },
 
 const actionTypes = {
 	Petition: {
-		thumbnail: "/wp-content/uploads/2019/01/Petition.png",
+		thumbnail: "/wp-content/plugins/klarity-question-answer/assets/petition.png",
 		backgroundColor: '#D8DBE8',
 		defaultTitle: "Sign a petition",
 		defaultDescription: 'Your signature is important. It signals to the institution in charge that you will not tolerate their corrupt ways.\nWe need to collect 50000 signatures. Add yours now!'
 	},
 	Email: {
-		thumbnail: "/wp-content/uploads/2019/01/Email.png",
+		thumbnail: "/wp-content/plugins/klarity-question-answer/assets/email.png",
 		backgroundColor: '#D8E5E8',
 		defaultTitle: "Send an e-mail",
 		defaultDescription: 'Use our template to send an email to the people in charge of this corrupt institution.\nEmail campaigns are great for putting pressure on.'
 	},
 	Call: {
-		thumbnail: "/wp-content/uploads/2019/01/Call.png",
+		thumbnail: "/wp-content/plugins/klarity-question-answer/assets/call.png",
 		backgroundColor: '#D8F5F8',
 		defaultTitle: "Make a call",
 		defaultDescription: 'Make your voice heard and call the institutions involved and requesting to speak to the people in charge.\nFeel free to use our talking points.'
