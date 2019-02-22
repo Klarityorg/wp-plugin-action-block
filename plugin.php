@@ -7,6 +7,8 @@
  * Author URI: https://github.com/Klarityorg
  * Version: 1.0.0
  * License: MIT
+ *
+ * @package Klarity
  */
 
 // Exit if accessed directly.
