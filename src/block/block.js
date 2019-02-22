@@ -127,7 +127,7 @@ registerBlockType('klarity/klarity-action-block', {
 			</div>
 			<div className="form-group">
 				<label>Action type:
-					<select id="type" className="h2" value={type} onChange={setType}>
+					<select id="type" value={type} onChange={setType}>
 						{Object.keys(actionTypes).map((actionTypeId) => (
 							<option value={actionTypeId} selected>{actionTypes[actionTypeId].defaultTitle}</option>
 						))}
