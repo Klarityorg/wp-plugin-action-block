@@ -160,24 +160,6 @@ registerBlockType('klarity/klarity-action-block', {
 	},
 
 	save: props => {
-		const {attributes: {isCompleted, type, title, link, description}} = props;
-
-		return !actionTypes[type]
-			? <span>Invalid type : {type}</span>
-			: <a
-				href={isCompleted ? "javascript:void(0)" : link}
-				target={isCompleted ? "_self" : "_blank"}
-				className={(isCompleted ? "completed " : "") + "col s12"}>
-			<div className="content">
-				<div className="thumbnail" style={{backgroundColor: actionTypes[type].backgroundColor, backgroundImage: 'url("' + actionTypes[type].thumbnail + '")'}}>
-				</div>
-				<div className="text">
-					<h2>{title}</h2>
-					{description.split('\n').map(descriptionLine => (
-						<p>{descriptionLine}</p>
-					))}
-				</div>
-			</div>
-		</a>;
+		return null;
 	},
 });
