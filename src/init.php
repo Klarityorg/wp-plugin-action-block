@@ -29,7 +29,7 @@ function klarity_action_block_editor_assets() {
 
 add_action('enqueue_block_editor_assets', 'klarity_action_block_editor_assets');
 
-function render_action_block($attributes) {
+function render_klarity_action_block($attributes) {
   ['type' => $type, 'isCompleted' => $isCompleted, 'link' => $link, 'title' => $title, 'description' => $description] = $attributes;
 
   $actionTypes = [
@@ -64,10 +64,10 @@ function render_action_block($attributes) {
 		</a>";
 }
 
-function register_action_block_callback() {
+function render_klarity_action_block_callback() {
   if (function_exists('register_block_type')) {
     register_block_type('klarity/klarity-action-block', [
-      'render_callback' => 'render_action_block',
+      'render_callback' => 'render_klarity_action_block',
       'attributes' => [
         'isCompleted' => [
           'type' => 'boolean',
@@ -94,4 +94,4 @@ function register_action_block_callback() {
   }
 }
 
-add_action('plugins_loaded', 'register_action_block_callback');
+add_action('plugins_loaded', 'render_klarity_action_block_callback');
