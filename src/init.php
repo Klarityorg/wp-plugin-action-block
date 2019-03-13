@@ -55,7 +55,7 @@ function render_klarity_action_block($attributes) {
 			<div class='content'>
 				<div class='thumbnail' style='background-color: " . $actionTypes[$type]['backgroundColor'] . "; background-image: url(" . $actionTypes[$type]['thumbnail'] . ")'></div>
 				<div class='text'>
-					<h2>get_title()</h2>
+					<h2>$title</h2>
 					" . implode('', array_map(function ($descriptionLine) {
 					  return "<p>$descriptionLine</p>";
 					}, explode("\n", $description)))
