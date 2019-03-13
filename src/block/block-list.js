@@ -12,7 +12,7 @@ registerBlockType('klarity/klarity-action-list-block', {
 	edit: props => {
 		return <span>
 			{<div>You can add one or multiple action blocks hereunder.</div>}
-			<InnerBlocks allowedBlocks={'klarity/klarity-action-block'} />
+			<InnerBlocks allowedBlocks={'klarity/klarity-action-block', 'klarity/klarity-social-action-block'} />
 		</span>;
 	},
 

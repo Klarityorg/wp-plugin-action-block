@@ -1,5 +1,8 @@
 .wp-block-klarity-klarity-action-list-block {
   margin-top: 20px;
+  p {
+    margin: 0px 10.5px 4px 10.5px;
+  }
 }
 
 .wp-block-klarity-klarity-action-block {
@@ -98,6 +101,49 @@
           background: transparent;
           text-align: center;
         }
+      }
+    }
+  }
+}
+.wp-block-klarity-klarity-social-action-block {
+  a:last-child{
+    margin-bottom: 12px;
+  }
+  a {
+    text-decoration: none !important;
+
+    .facebook {
+      background-color:#3A559F;
+    }
+    .twitter {
+      background-color:#38A1F3;
+    }
+    .whatsapp {
+      background-color:#1BD741;
+    }
+    div {
+      display: flex;
+      flex-direction:row;
+      height:39px;
+      margin-bottom: 12px;
+
+      box-shadow: 0 11px 20px rgba(0, 0, 0, 0.15);
+      img {
+         width:44px;
+         padding:10px;
+         background-color: rgba(0, 0, 0, 0.2);
+      }
+      p {
+        width:100%;
+        color:white;
+        text-decoration:none !important;
+        text-align: center;
+        margin:auto;
+        font-size:10px;
+        letter-spacing:0.2em;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
       }
     }
   }

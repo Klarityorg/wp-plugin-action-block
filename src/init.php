@@ -55,7 +55,7 @@ function render_klarity_action_block($attributes) {
 			<div class='content'>
 				<div class='thumbnail' style='background-color: " . $actionTypes[$type]['backgroundColor'] . "; background-image: url(" . $actionTypes[$type]['thumbnail'] . ")'></div>
 				<div class='text'>
-					<h2>$title</h2>
+					<h2>get_title()</h2>
 					" . implode('', array_map(function ($descriptionLine) {
 					  return "<p>$descriptionLine</p>";
 					}, explode("\n", $description)))
@@ -95,3 +95,36 @@ function render_klarity_action_block_callback() {
 }
 
 add_action('plugins_loaded', 'render_klarity_action_block_callback');
+
+function render_klarity_social_action_block() {
+  return "<div class='wp-block-klarity-klarity-social-action-block'>
+    <a href='http://www.facebook.com/sharer.php?u=".get_permalink()."&t=".get_the_title()."' class='col s12'>
+      <div class='facebook'>
+        <img src='".plugin_dir_url( __DIR__ )."assets/facebook.svg'></img>
+        <p>SHARE THIS ON FACEBOOK</p>
+      </div>
+    </a>
+    <a href='http://twitter.com/share' class='col s12' data-url='".get_permalink()."' data-text='".get_the_title()."'>
+      <div class='twitter'>
+        <img src='".plugin_dir_url( __DIR__ )."assets/twitter.svg'></img>
+        <p>SHARE THIS ON TWITTER</p>
+      </div>
+    </a>
+    <a href='whatsapp://send?text=".get_the_title()."' data-action='share/whatsapp/share' class='col s12'>
+      <div class='whatsapp'>
+        <img src='".plugin_dir_url( __DIR__ )."assets/whatsapp.svg'></img>
+        <p>SHARE THIS ON VIA WHATSAPP</p>
+      </div>
+    </a>
+  </div>";
+}
+
+function render_klarity_social_action_block_callback() {
+  if (function_exists('register_block_type')) {
+    register_block_type('klarity/klarity-social-action-block', [
+      'render_callback' => 'render_klarity_social_action_block',
+    ]);
+  }
+}
+
+add_action('plugins_loaded', 'render_klarity_social_action_block_callback');
