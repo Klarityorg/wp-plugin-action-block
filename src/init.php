@@ -98,19 +98,19 @@ add_action('plugins_loaded', 'render_klarity_action_block_callback');
 
 function render_klarity_social_action_block() {
   return "<div class='wp-block-klarity-klarity-social-action-block'>
-    <a href='http://www.facebook.com/sharer.php?u=".get_permalink()."&t=".get_the_title()."' class='col s12'>
+    <a href='http://www.facebook.com/sharer.php?u=".get_permalink()."&t=".get_the_title()."' class='col s12' target='_blank'>
       <div class='facebook'>
         <img src='".plugin_dir_url( __DIR__ )."assets/facebook.svg'></img>
         <p>SHARE THIS ON FACEBOOK</p>
       </div>
     </a>
-    <a href='http://twitter.com/share' class='col s12' data-url='".get_permalink()."' data-text='".get_the_title()."'>
+    <a href='https://twitter.com/intent/tweet?text=".get_the_title()."&url=".get_permalink()."' class='col s12' target='_blank'>
       <div class='twitter'>
         <img src='".plugin_dir_url( __DIR__ )."assets/twitter.svg'></img>
         <p>SHARE THIS ON TWITTER</p>
       </div>
     </a>
-    <a href='whatsapp://send?text=".get_the_title()."' data-action='share/whatsapp/share' class='col s12'>
+    <a href='https://wa.me/whatsappphonenumber/?text=".get_the_title()." - ".get_permalink()."' class='col s12' target='_blank'>
       <div class='whatsapp'>
         <img src='".plugin_dir_url( __DIR__ )."assets/whatsapp.svg'></img>
         <p>SHARE THIS ON VIA WHATSAPP</p>
