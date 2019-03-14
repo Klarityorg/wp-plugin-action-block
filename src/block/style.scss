@@ -1,31 +1,35 @@
 .wp-block-klarity-klarity-action-list-block {
   margin-top: 20px;
   p {
-    margin-bottom: 4px;
+    margin: 0 10.5px 4px 10.5px;
   }
 }
 
 .wp-block-klarity-klarity-action-block {
   margin-bottom: 24px;
   text-decoration: none !important;
-  padding-right: 0px !important;
-  padding-left: 0px !important;
+  background: $background !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 
   @media only screen and (max-width : 960px) {
     margin-bottom: 12px;
   }
 
+  * {
+    color: $text-color !important;
+  }
+
   .content {
+    position: relative;
     display: flex;
-    background: white;
     align-items: center;
-    color: black;
     cursor: pointer;
-    height: 190px;
+    height: 120px;
     box-shadow: 0 11px 20px rgba(0, 0, 0, 0.15);
 
-    @media only screen and (max-width : 960px) {
-      height: 150px;
+    @media only screen and (max-width : 600px) {
+      height: 140px;
     }
 
     .thumbnail, .text {
@@ -39,9 +43,9 @@
       background-repeat: no-repeat;
       background-position: 50%;
       background-size: 70px;
-      width: 40%;
+      width: 33%;
 
-      @media only screen and (max-width : 960px) {
+      @media only screen and (max-width : 600px) {
         background-size: 60px;
       }
     }
@@ -50,7 +54,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 60%;
+      width: 67%;
 
       h2, .h2,
       p, .p {
@@ -65,45 +69,41 @@
 
         font-family: Unna, sans-serif;
         font-weight: bold;
-        line-height: 39px;
-        font-size: 24px;
-        color: black;
+        line-height: 26px;
+        font-size: 20px;
+
+        @media only screen and (max-width : 600px) {
+          line-height: 30px;
+          font-size: 24px;
+        }
       }
 
       p, .p {
         font-family: Lato, sans-serif;
         font-weight: 300;
-        font-size: 16px;
-        line-height: 24px;
-        color: #0F0F0F;
+        font-size: 10px;
+        line-height: 14px;
 
-        @media only screen and (max-width : 960px) {
+        @media only screen and (max-width : 600px) {
           font-size: 12px;
           line-height: 16px;
         }
       }
     }
-  }
 
-  &.completed {
-    &, a {
-      cursor: default;
-    }
-
-    .content {
-      background: $background-completed;
-
-      .thumbnail {
-        display: none;
-      }
-      .text {
-        width: 100%;
-
-        * {
-          background: transparent;
-          text-align: center;
-        }
-      }
+    .most-valuable-banner {
+      position: absolute;
+      align-self: flex-end;
+      width: 100%;
+      bottom: 5px;
+      margin-left: -20px;
+      background: red;
+      text-align: center;
+      font-family: Lato, sans-serif;
+      font-weight: bold;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
     }
   }
 }
@@ -145,7 +145,7 @@
         margin:auto;
         font-size:10px;
         letter-spacing:0.2em;
-        font-family: Lato;
+        font-family: Lato, sans-serif;
         font-style: normal;
         font-weight: bold;
       }

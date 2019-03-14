@@ -2,8 +2,7 @@
   width: 100% !important;
   float: none !important;
 
-  select, input, textarea {
-    width: 100%;
+  select, input[type="text"], textarea {
     border: none !important;
     &:hover {
       outline: 1px solid lightgray;
@@ -19,6 +18,19 @@
   }
 
   .content {
-    cursor: default;
+    cursor: default !important;
+  }
+}
+
+.wp-block-klarity-klarity-action-block-form {
+  label {
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow-x: hidden;
+
+    input[type="text"] {
+      width: 100vw;
+    }
   }
 }

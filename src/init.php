@@ -30,36 +30,41 @@ function klarity_action_block_editor_assets() {
 add_action('enqueue_block_editor_assets', 'klarity_action_block_editor_assets');
 
 function render_klarity_action_block($attributes) {
-  ['type' => $type, 'isCompleted' => $isCompleted, 'link' => $link, 'title' => $title, 'description' => $description] = $attributes;
+  [
+    'markAsMostValuable' => $markAsMostValuable,
+    'type' => $type,
+    'link' => $link,
+    'title' => $title,
+    'description' => $description
+  ] = $attributes;
+
+  $mostValuableBlock = $markAsMostValuable
+    ? '<div class="most-valuable-banner">Most valuable action</div>'
+    : '';
 
   $actionTypes = [
     'Petition' => [
-      'thumbnail' => plugin_dir_url(__DIR__) . '/assets/petition.png',
-      'backgroundColor' => '#D8DBE8'
+      'thumbnail' => plugin_dir_url(__DIR__) . '/assets/petition.png'
     ],
     'Email' => [
-      'thumbnail' => plugin_dir_url(__DIR__) . '/assets/email.png',
-      'backgroundColor' => '#D8E5E8'
-    ],
-    'Call' => [
-      'thumbnail' => plugin_dir_url(__DIR__) . '/assets/call.png',
-      'backgroundColor' => '#D8F5F8'
+      'thumbnail' => plugin_dir_url(__DIR__) . '/assets/email.png'
     ]
   ];
   return !isset($actionTypes[$type])
     ? "<span>Invalid type : {$type}</span>"
     : "<a
-				href='" . ($isCompleted ? 'javascript:void(0)' : $link) . "'
-				target='" . ($isCompleted ? '_self' : '_blank') . "'
-				class='wp-block-klarity-klarity-action-block " . ($isCompleted ? 'completed ' : '') . " col s12'>
+				href='$link'
+				target='_blank'
+				class='wp-block-klarity-klarity-action-block col s12'>
 			<div class='content'>
-				<div class='thumbnail' style='background-color: " . $actionTypes[$type]['backgroundColor'] . "; background-image: url(" . $actionTypes[$type]['thumbnail'] . ")'></div>
+				<div class='thumbnail' style='background-image: url(" . $actionTypes[$type]['thumbnail'] . ")'></div>
 				<div class='text'>
-					<h2>$title</h2>
-					" . implode('', array_map(function ($descriptionLine) {
+					<h2>$title</h2>".
+          implode('', array_map(function ($descriptionLine) {
 					  return "<p>$descriptionLine</p>";
-					}, explode("\n", $description)))
-    . "</div>
+					}, explode("\n", $description))). "
+        </div>
+        $mostValuableBlock
 			</div>
 		</a>";
 }
@@ -69,7 +74,7 @@ function render_klarity_action_block_callback() {
     register_block_type('klarity/klarity-action-block', [
       'render_callback' => 'render_klarity_action_block',
       'attributes' => [
-        'isCompleted' => [
+        'markAsMostValuable' => [
           'type' => 'boolean',
           'default' => false
         ],
@@ -100,19 +105,19 @@ function render_klarity_social_action_block() {
   return "<div class='wp-block-klarity-klarity-social-action-block'>
     <a href='http://www.facebook.com/sharer.php?u=".get_permalink()."&t=".get_the_title()."' class='col s12' target='_blank'>
       <div class='facebook'>
-        <img src='".plugin_dir_url( __DIR__ )."assets/facebook.svg'></img>
+        <img src='".plugin_dir_url( __DIR__ )."assets/facebook.svg' />
         <p>SHARE THIS ON FACEBOOK</p>
       </div>
     </a>
     <a href='https://twitter.com/intent/tweet?text=".get_the_title()."&url=".get_permalink()."' class='col s12' target='_blank'>
       <div class='twitter'>
-        <img src='".plugin_dir_url( __DIR__ )."assets/twitter.svg'></img>
+        <img src='".plugin_dir_url( __DIR__ )."assets/twitter.svg' />
         <p>SHARE THIS ON TWITTER</p>
       </div>
     </a>
     <a href='https://wa.me/whatsappphonenumber/?text=".get_the_title()." - ".get_permalink()."' class='col s12' target='_blank'>
       <div class='whatsapp'>
-        <img src='".plugin_dir_url( __DIR__ )."assets/whatsapp.svg'></img>
+        <img src='".plugin_dir_url( __DIR__ )."assets/whatsapp.svg' />
         <p>SHARE THIS ON VIA WHATSAPP</p>
       </div>
     </a>

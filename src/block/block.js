@@ -13,21 +13,13 @@ const iconEl = el('svg', { width: 128, height: 128, viewBox: "0 0 128 128" },
 const actionTypes = {
 	Petition: {
 		thumbnail: "/wp-content/plugins/klarity-action-block/assets/petition.png",
-		backgroundColor: '#D8DBE8',
 		defaultTitle: "Sign a petition",
-		defaultDescription: 'Your signature is important. It signals to the institution in charge that you will not tolerate their corrupt ways.\nWe need to collect 50000 signatures. Add yours now!'
+		defaultDescription: 'We need 5000 signatures.'
 	},
 	Email: {
 		thumbnail: "/wp-content/plugins/klarity-action-block/assets/email.png",
-		backgroundColor: '#D8E5E8',
 		defaultTitle: "Send an e-mail",
-		defaultDescription: 'Use our template to send an email to the people in charge of this corrupt institution.\nEmail campaigns are great for putting pressure on.'
-	},
-	Call: {
-		thumbnail: "/wp-content/plugins/klarity-action-block/assets/call.png",
-		backgroundColor: '#D8F5F8',
-		defaultTitle: "Make a call",
-		defaultDescription: 'Make your voice heard and call the institutions involved and requesting to speak to the people in charge.\nFeel free to use our talking points.'
+		defaultDescription: 'Use our template to quickly send an email.'
 	}
 };
 
@@ -39,7 +31,7 @@ registerBlockType('klarity/klarity-action-block', {
 	icon: iconEl,
 
 	attributes: {
-		isCompleted: {
+		markAsMostValuable: {
 			type: 'boolean',
 			default: false
 		},
@@ -61,7 +53,7 @@ registerBlockType('klarity/klarity-action-block', {
 		}
 	},
 	edit: props => {
-		let {attributes: {isCompleted, title, type, link, description}, setAttributes} = props;
+		let {attributes: {markAsMostValuable, title, type, link, description}, setAttributes} = props;
 
 		const setDefaultTitleAndDescription = (form, type) => {
 			title = actionTypes[type].defaultTitle;
@@ -74,25 +66,18 @@ registerBlockType('klarity/klarity-action-block', {
 		const setType = event => {
 			type = event.target.querySelector('option:checked').value;
 
-			if (!isCompleted) {
-				setDefaultTitleAndDescription(
-					event.target.form,
-					event.target.form.type.querySelector('option:checked').value
-				)
-			}
+			setDefaultTitleAndDescription(
+				event.target.form,
+				event.target.form.type.querySelector('option:checked').value
+			);
+
 			setAttributes({type});
 			event.preventDefault();
 		};
 
-		const setIsCompleted = event => {
-			isCompleted = event.target.checked;
-			if (!isCompleted) {
-				setDefaultTitleAndDescription(
-					event.target.form,
-					type
-				)
-			}
-			setAttributes({isCompleted});
+		const setMarkAsMostValuable = event => {
+			markAsMostValuable = event.target.checked;
+			setAttributes({markAsMostValuable});
 		};
 
 		const setTitle = event => {
@@ -120,40 +105,32 @@ registerBlockType('klarity/klarity-action-block', {
 			setAttributes({description});
 		}
 
-		return !actionTypes[type]? <span>Invalid type : {type}</span> : <form id="action_edit">
-			<div className="form-group">
-				<label>
-					<input id="isCompleted" type="checkbox" defaultChecked={isCompleted} value={isCompleted} onChange={setIsCompleted}/> Completed</label>
-			</div>
-			<div className="form-group">
-				<label>Action type:
-					<select id="type" value={type} onChange={setType}>
-						{Object.keys(actionTypes).map((actionTypeId) => (
-							<option value={actionTypeId} selected>{actionTypes[actionTypeId].defaultTitle}</option>
-						))}
-					</select>
-				</label>
-			</div>
-			<div className="form-group">
-				<label>Action link:
-					<input id="link" type="text" value={link} onChange={setLink}/>
-				</label>
-			</div>
-			<div className={"editor " + (isCompleted ? "completed " : "") + props.className}>
+		return !actionTypes[type]? <span>Invalid type : {type}</span> : <form className={"wp-block-klarity-klarity-action-block-form"}>
+			<label>
+				<input type="checkbox" defaultChecked={markAsMostValuable} value={markAsMostValuable} onChange={setMarkAsMostValuable}/> Mark as most valuable
+			</label>
+			<label>Action type:
+				<select id="type" value={type} onChange={setType}>
+					{Object.keys(actionTypes).map((actionTypeId) => (
+						<option value={actionTypeId} selected>{actionTypes[actionTypeId].defaultTitle}</option>
+					))}
+				</select>
+			</label>
+			<label>Action link:
+				<input id="link" type="text" value={link} onChange={setLink}/>
+			</label>
+			<div className={"editor " + props.className}>
 				<div className="content">
-					<div className="thumbnail" style={{backgroundColor: actionTypes[type].backgroundColor, backgroundImage: 'url("' + actionTypes[type].thumbnail + '")'}}>
+					<div className="thumbnail" style={{backgroundImage: 'url("' + actionTypes[type].thumbnail + '")'}}>
 					</div>
 					<div className="text">
-						<div className="form-group">
-							<input id="title" type="text" className="h2" value={title} onChange={setTitle} />
-						</div>
+						<input id="title" type="text" className="h2" value={title} onChange={setTitle} />
 
-						<div className="form-group">
-							<textarea id="description" className="p" onChange={setDescription}>
-								{description}
-							</textarea>
-						</div>
+						<textarea id="description" className="p" onChange={setDescription}>
+							{description}
+						</textarea>
 					</div>
+					{markAsMostValuable && <div className="most-valuable-banner">Most valuable action</div>}
 				</div>
 			</div>
 		</form>;
