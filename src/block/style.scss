@@ -1,13 +1,15 @@
 .wp-block-klarity-klarity-action-list-block {
   margin-top: 20px;
   p {
-    margin: 0px 10.5px 4px 10.5px;
+    margin-bottom: 4px;
   }
 }
 
 .wp-block-klarity-klarity-action-block {
   margin-bottom: 24px;
   text-decoration: none !important;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 
   @media only screen and (max-width : 960px) {
     margin-bottom: 12px;
@@ -110,6 +112,8 @@
     margin-bottom: 12px;
   }
   a {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
     text-decoration: none !important;
 
     .facebook {
