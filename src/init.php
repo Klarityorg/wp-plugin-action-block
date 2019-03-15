@@ -118,7 +118,7 @@ function render_klarity_social_action_block() {
     <a href='https://wa.me/whatsappphonenumber/?text=".get_the_title()." - ".get_permalink()."' class='col s12' target='_blank'>
       <div class='whatsapp'>
         <img src='".plugin_dir_url( __DIR__ )."assets/whatsapp.svg' />
-        <p>SHARE THIS ON VIA WHATSAPP</p>
+        <p>SHARE THIS VIA WHATSAPP</p>
       </div>
     </a>
   </div>";
