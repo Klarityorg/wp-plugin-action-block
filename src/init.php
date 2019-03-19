@@ -30,13 +30,11 @@ function klarity_action_block_editor_assets() {
 add_action('enqueue_block_editor_assets', 'klarity_action_block_editor_assets');
 
 function render_klarity_action_block($attributes) {
-  [
-    'markAsMostValuable' => $markAsMostValuable,
-    'type' => $type,
-    'link' => $link,
-    'title' => $title,
-    'description' => $description
-  ] = $attributes;
+  $markAsMostValuable = $attributes['markAsMostValuable'] ?? '';
+  $type = $attributes['type'] ?? '';
+  $link = $attributes['link'] ?? '';
+  $title = $attributes['title'] ?? '';
+  $description = $attributes['description'] ?? '';
 
   $mostValuableBlock = $markAsMostValuable
     ? '<div class="most-valuable-banner">Most valuable action</div>'
