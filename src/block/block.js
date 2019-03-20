@@ -12,12 +12,12 @@ const iconEl = el('svg', { width: 128, height: 128, viewBox: "0 0 128 128" },
 
 const actionTypes = {
 	Petition: {
-		thumbnail: "/wp-content/plugins/klarity-action-block/assets/petition.png",
+		thumbnail: "/wp-content/plugins/klarity-action-block/images/petition.png",
 		defaultTitle: "Sign a petition",
 		defaultDescription: 'We need 5000 signatures.'
 	},
 	Email: {
-		thumbnail: "/wp-content/plugins/klarity-action-block/assets/email.png",
+		thumbnail: "/wp-content/plugins/klarity-action-block/images/email.png",
 		defaultTitle: "Send an e-mail",
 		defaultDescription: 'Use our template to quickly send an email.'
 	}
