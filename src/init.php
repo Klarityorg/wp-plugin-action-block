@@ -42,12 +42,13 @@ function render_klarity_action_block($attributes) {
 
   $actionTypes = [
     'Petition' => [
-      'thumbnail' => plugin_dir_url(__DIR__) . '/assets/petition.png'
+      'thumbnail' => plugin_dir_url(__DIR__) . 'assets/petition.png'
     ],
     'Email' => [
-      'thumbnail' => plugin_dir_url(__DIR__) . '/assets/email.png'
+      'thumbnail' => plugin_dir_url(__DIR__) . 'assets/email.png'
     ]
   ];
+
   return !isset($actionTypes[$type])
     ? "<span>Invalid type : {$type}</span>"
     : "<a
