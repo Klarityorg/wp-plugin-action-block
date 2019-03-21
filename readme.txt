@@ -26,6 +26,8 @@ If you wish to build the plugin yourself, see the "Building" section hereunder.
 3. Screenshot of sign a petition editor options
 
 == Changelog ==
+= 1.1.2 =
+* Fixed share this via whats app button
 = 1.1.1 =
 * Update action cards thumbnails
 = 1.1.0 =
