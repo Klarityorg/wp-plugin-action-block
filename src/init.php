@@ -37,7 +37,7 @@ function render_klarity_action_block($attributes) {
   $description = $attributes['description'] ?? '';
 
   $mostValuableBlock = $markAsMostValuable
-    ? '<div class="most-valuable-banner">Most valuable action</div>'
+    ? '<div class="most-valuable-banner">Most valuable</div>'
     : '';
 
   $actionTypes = [
