@@ -35,7 +35,7 @@
     }
 
     .thumbnail, .text {
-      padding: 12px;
+      padding: 25px 0;
       height: 100%;
     }
 
@@ -51,7 +51,6 @@
     .text {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       width: 67%;
 
       h2, .h2,
