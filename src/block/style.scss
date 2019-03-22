@@ -77,13 +77,8 @@
       p, .p {
         font-family: Lato, sans-serif;
         font-weight: 300;
-        font-size: 10px;
-        line-height: 14px;
-
-        @media only screen and (max-width : 600px) {
-          font-size: 12px;
-          line-height: 16px;
-        }
+        font-size: 14px;
+        line-height: 16px;
       }
     }
 
