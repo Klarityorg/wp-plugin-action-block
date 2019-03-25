@@ -35,7 +35,7 @@
     }
 
     .thumbnail, .text {
-      padding: 25px 0;
+      padding: 25px 1%;
       height: 100%;
     }
 
@@ -51,7 +51,7 @@
     .text {
       display: flex;
       flex-direction: column;
-      width: 67%;
+      width: 65%;
 
       h2, .h2,
       p, .p {
