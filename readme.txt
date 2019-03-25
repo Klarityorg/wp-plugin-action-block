@@ -4,7 +4,7 @@ Tags: action, block, gutenberg
 Requires at least: 5.0.0
 Tested up to: 5.1.0
 Requires PHP: 7.2.0
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -26,6 +26,8 @@ If you wish to build the plugin yourself, see the "Building" section hereunder.
 3. Screenshot of sign a petition editor options
 
 == Changelog ==
+= 1.1.4 =
+* Small layout improvements
 = 1.1.3 =
 * Bigger font size inside of the action card, small layout improvements
 = 1.1.2 =
