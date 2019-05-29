@@ -49,20 +49,36 @@ function render_klarity_action_block($attributes) {
     ]
   ];
 
-  return !isset($actionTypes[$type])
-    ? "<span>Invalid type : {$type}</span>"
-    : "<a
+/*--------------------------------------------------------------
+# Custom code new design 2019/05/10
+--------------------------------------------------------------*/
+//  return !isset($actionTypes[$type])
+//    ? "<span>Invalid type : {$type}</span>"
+//    : "<a
+//				href='$link'
+//				target='_blank'
+//				class='wp-block-klarity-klarity-action-block col s12'>
+//			<div class='content'>
+//				<div class='thumbnail' style='background-image: url(" . $actionTypes[$type]['thumbnail'] . ")'></div>
+//				<div class='text'>
+//					<h2>$title</h2>".
+//          implode('', array_map(function ($descriptionLine) {
+//					  return "<p>$descriptionLine</p>";
+//					}, explode("\n", $description))). "
+//        </div>
+//        $mostValuableBlock
+//			</div>
+//		</a>";
+    return !isset($actionTypes[$type])
+        ? "<span>Invalid type : {$type}</span>"
+        : "<a
 				href='$link'
 				target='_blank'
 				class='wp-block-klarity-klarity-action-block col s12'>
-			<div class='content'>
-				<div class='thumbnail' style='background-image: url(" . $actionTypes[$type]['thumbnail'] . ")'></div>
+			<div class='content help-$type'>
 				<div class='text'>
-					<h2>$title</h2>".
-          implode('', array_map(function ($descriptionLine) {
-					  return "<p>$descriptionLine</p>";
-					}, explode("\n", $description))). "
-        </div>
+					<h2>$title</h2>
+                </div>
         $mostValuableBlock
 			</div>
 		</a>";
@@ -101,24 +117,38 @@ function render_klarity_action_block_callback() {
 add_action('plugins_loaded', 'render_klarity_action_block_callback');
 
 function render_klarity_social_action_block() {
-  return "<div class='wp-block-klarity-klarity-social-action-block'>
-    <a href='http://www.facebook.com/sharer.php?u=".get_permalink()."&t=".get_the_title()."' class='col s12' target='_blank'>
-      <div class='facebook'>
-        <img src='".plugin_dir_url( __DIR__ )."images/facebook.svg' />
-        <p>SHARE THIS ON FACEBOOK</p>
-      </div>
+    /*--------------------------------------------------------------
+    # Custom code new design 2019/05/10
+    --------------------------------------------------------------*/
+//  return "<div class='wp-block-klarity-klarity-social-action-block'>
+//    <a href='http://www.facebook.com/sharer.php?u=".get_permalink()."&t=".get_the_title()."' class='col s12' target='_blank'>
+//      <div class='facebook'>
+//        <img src='".plugin_dir_url( __DIR__ )."images/facebook.svg' />
+//        <p>SHARE THIS ON FACEBOOK</p>
+//      </div>
+//    </a>
+//    <a href='https://twitter.com/intent/tweet?text=".get_the_title()."&url=".get_permalink()."' class='col s12' target='_blank'>
+//      <div class='twitter'>
+//        <img src='".plugin_dir_url( __DIR__ )."images/twitter.svg' />
+//        <p>SHARE THIS ON TWITTER</p>
+//      </div>
+//    </a>
+//    <a href='https://wa.me/?text=".get_the_title()." - ".get_permalink()."' class='col s12' target='_blank'>
+//      <div class='whatsapp'>
+//        <img src='".plugin_dir_url( __DIR__ )."images/whatsapp.svg' />
+//        <p>SHARE THIS VIA WHATSAPP</p>
+//      </div>
+//    </a>
+//  </div>";
+    return "<div class='wp-block-klarity-klarity-social-action-block'>
+    <a class='facebook' href='http://www.facebook.com/sharer.php?u=".get_permalink()."&t=".get_the_title()."' class='col s12' target='_blank'>
+      <img src='".plugin_dir_url( __DIR__ )."images/facebook.png' />
     </a>
-    <a href='https://twitter.com/intent/tweet?text=".get_the_title()."&url=".get_permalink()."' class='col s12' target='_blank'>
-      <div class='twitter'>
-        <img src='".plugin_dir_url( __DIR__ )."images/twitter.svg' />
-        <p>SHARE THIS ON TWITTER</p>
-      </div>
+    <a class='twitter'href='https://twitter.com/intent/tweet?text=".get_the_title()."&url=".get_permalink()."' class='col s12' target='_blank'>
+      <img src='".plugin_dir_url( __DIR__ )."images/twitter.png' />
     </a>
-    <a href='https://wa.me/?text=".get_the_title()." - ".get_permalink()."' class='col s12' target='_blank'>
-      <div class='whatsapp'>
-        <img src='".plugin_dir_url( __DIR__ )."images/whatsapp.svg' />
-        <p>SHARE THIS VIA WHATSAPP</p>
-      </div>
+    <a class='whatsapp' href='https://wa.me/?text=".get_the_title()." - ".get_permalink()."' class='col s12' target='_blank'>
+      <img src='".plugin_dir_url( __DIR__ )."images/whatsapp.png' />
     </a>
   </div>";
 }
